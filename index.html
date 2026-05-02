@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArchViz glTF Viewer</title>
+    <meta
+      name="description"
+      content="A Three.js glTF/GLB architectural visualization viewer with presentation lighting and turntable animation."
+    />
+  </head>
+  <body>
+    <canvas id="viewer"></canvas>
+
+    <main class="ui-panel" aria-label="Viewer controls">
+      <div class="brand">
+        <span class="brand-mark"></span>
+        <div>
+          <h1>ArchViz glTF Viewer</h1>
+          <p>Drop a model or place it at <code>/public/models/model.gltf</code></p>
+        </div>
+      </div>
+
+      <label class="file-picker">
+        <input
+          id="fileInput"
+          type="file"
+          accept=".glb,.gltf,.bin,.png,.jpg,.jpeg,.webp"
+          multiple
+        />
+        Open GLB / glTF
+      </label>
+
+      <div class="control-row">
+        <button id="toggleRotation" type="button">Pause rotation</button>
+        <button id="resetCamera" type="button">Reset view</button>
+      </div>
+
+      <label class="range-label">
+        Rotation speed
+        <input id="rotationSpeed" type="range" min="0" max="0.6" value="0.12" step="0.01" />
+      </label>
+
+      <label class="range-label">
+        Exposure
+        <input id="exposure" type="range" min="0.5" max="2" value="1" step="0.01" />
+      </label>
+
+      <p id="status" class="status">Loading default model...</p>
+    </main>
+
+    <div id="dropHint" class="drop-hint">Drop .glb or .gltf + .bin/textures</div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
